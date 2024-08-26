@@ -21,4 +21,8 @@ public class BlogService {
     public Optional<Blog> getBlogById(Long id) {
         return blogRepository.findById(id);
     }
+
+    public Blog createOrUpdateBlog(Blog blog) {
+        return blogRepository.save(blog);
+    }
 }

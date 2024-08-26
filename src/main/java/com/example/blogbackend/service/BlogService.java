@@ -18,6 +18,7 @@ public class BlogService {
         return blogRepository.findAll();
     }
 
+    // Optional Because, Blog with the id provided is not certain.
     public Optional<Blog> getBlogById(Long id) {
         return blogRepository.findById(id);
     }

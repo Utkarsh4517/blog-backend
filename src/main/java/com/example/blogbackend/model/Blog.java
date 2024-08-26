@@ -37,4 +37,17 @@ public class Blog {
         this.author = author;
     }
 
+    // Getters
+    public long getId() {
+        return id;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public String getContent() {
+        return content;
+    }
+    public String getAuthor() {
+        return author;
+    }
 }

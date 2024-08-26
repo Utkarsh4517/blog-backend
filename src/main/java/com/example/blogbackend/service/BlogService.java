@@ -25,4 +25,8 @@ public class BlogService {
     public Blog createOrUpdateBlog(Blog blog) {
         return blogRepository.save(blog);
     }
+
+    public void deleteBlog(Long id) {
+        blogRepository.deleteById(id);
+    }
 }

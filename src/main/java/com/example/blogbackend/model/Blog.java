@@ -15,4 +15,6 @@ public class Blog {
     private String content;
     private String author;
 
+    public Blog() {}
+
 }

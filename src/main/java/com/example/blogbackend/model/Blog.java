@@ -17,4 +17,10 @@ public class Blog {
 
     public Blog() {}
 
+    public Blog(String title, String content, String author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+    }
+
 }

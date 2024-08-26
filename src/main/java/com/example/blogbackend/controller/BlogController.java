@@ -4,10 +4,7 @@ import com.example.blogbackend.model.Blog;
 import com.example.blogbackend.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +33,11 @@ public class BlogController {
         // .getBody():
         //extracts the body from the ResponseEntity. If blog was present, the body will be the Blog object. If blog was not present, the body will be null.
         return blog.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build()).getBody();
+    }
+
+    @PostMapping
+    public Blog createBlog(@RequestBody Blog blog) {
+        return blogService.createOrUpdateBlog(blog);
     }
 
 

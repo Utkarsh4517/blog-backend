@@ -40,6 +40,20 @@ public class BlogController {
         return blogService.createOrUpdateBlog(blog);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Blog> updateBlog(@PathVariable Long id, @RequestBody Blog blogDetails) {
+        Optional<Blog> blogOptional = blogService.getBlogById(id);
+        if(blogOptional.isPresent()) {
+            Blog blog = blogOptional.get();
+            blog.setTitle(blogDetails.getTitle());
+            blog.setContent(blogDetails.getContent());
+            blog.setAuthor(blogDetails.getAuthor());
+            return ResponseEntity.ok(blogService.createOrUpdateBlog(blog));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 
 
